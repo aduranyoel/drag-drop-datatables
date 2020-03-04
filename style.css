@@ -1,0 +1,31 @@
+body {
+    background-color: gray;
+}
+.content {
+    width: 100%;
+    display: flex;
+}
+    .content > div {
+        width: 50%;
+        height: 96vh;
+        background-color: white;
+        margin: 8px;
+        border: 5px dashed rgba(0,0,0,0.5);
+        padding: 16px;
+    }
+    table.dataTable tbody tr.over {
+        background-color: #ffa;
+      }
+      
+      table.dataTable tbody tr.over > .sorting_1 {
+        background-color: #ffa;
+      }
+      
+      table.dataTable tbody tr.over {
+        background-color: #ffa;
+      }
+      
+      table.dataTable tbody tr.over > .sorting_1 {
+        background-color: #ffa;
+      }
+      

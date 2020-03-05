@@ -302,7 +302,6 @@ function handleDragStart(e) {
 
     // Set the source row opacity
     this.style.opacity = '0.4';
-    console.log(e);
 
     // Keep track globally of the source row and source table id
     dragSrcRow = this;

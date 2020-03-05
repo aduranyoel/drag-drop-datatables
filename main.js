@@ -258,6 +258,7 @@ window.addEventListener('load', function () {
             // Add HTML5 draggable event listeners to each row
             rows = document.querySelectorAll('#table1 tbody tr');
             [].forEach.call(rows, function (row) {
+
                 row.addEventListener('dragstart', handleDragStart, false);
                 row.addEventListener('dragenter', handleDragEnter, false)
                 row.addEventListener('dragover', handleDragOver, false);
@@ -301,6 +302,7 @@ function handleDragStart(e) {
 
     // Set the source row opacity
     this.style.opacity = '0.4';
+    console.log(e);
 
     // Keep track globally of the source row and source table id
     dragSrcRow = this;
@@ -310,7 +312,7 @@ function handleDragStart(e) {
     e.dataTransfer.effectAllowed = 'move';
 
     // Save the source row html as text
-    e.dataTransfer.setData('text/plain', e.target.outerHTML);
+    e.dataTransfer.setData('text', e.target.outerHTML);
 
 }
 
@@ -352,14 +354,14 @@ function handleDrop(e) {
     }
 
     // Get destination table id, row
-    var dstTable = $(this.closest('table')).attr('id');
+    var dstTable = $(this).closest('table').attr('id');
     var dstRow = $(this).closest('tr');
 
     // No need to process if src and dst table are the same
     if (srcTable !== dstTable) {
 
         // Get source transfer data
-        var srcData = e.dataTransfer.getData('text/plain');
+        var srcData = e.dataTransfer.getData('text');
 
         // Add row to destination Datatable
         $('#' + dstTable).DataTable().row.add($(srcData)).draw();
